@@ -11,17 +11,17 @@ function NavigationBar() {
       </div>
       <ul>
         <li>
-          <NavLink to="/" className="Link" activeClassName="active" exact>
+          <NavLink to="/" className="Link">
             Rocket
           </NavLink>
         </li>
         <li>
-          <NavLink to="/mission" className="Link" activeClassName="active">
+          <NavLink to="/mission" className="Link">
             Mission
           </NavLink>
         </li>
         <li>
-          <NavLink to="/myprofile" className="Link" activeClassName="active">
+          <NavLink to="/myprofile" className="Link">
             My Profile
           </NavLink>
         </li>
