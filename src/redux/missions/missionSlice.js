@@ -7,11 +7,11 @@ const initialState = {
   isError: false,
 };
 
-const getMissionsURL = 'https://api.spacexdata.com/v3/missions/';
+const getMissionsURL = 'https://api.spacexdata.com/v3/missions';
 export const getMissions = createAsyncThunk('missions/getMissions', async (_, api) => {
   try {
-    const response = await axios(getMissionsURL);
-    return response.data;
+    const res = await axios(getMissionsURL);
+    return res.data;
   } catch (err) {
     return api.rejectWithValue('Api failed to fetch');
   }
@@ -24,8 +24,8 @@ const missionSlice = createSlice({
     joinMission: (state, action) => {
       const id = action.payload;
       const createMission = state.missions.map((m) => {
-        if(m.mission_id !== id) return m;
-        return { ...m, reserved:true}
+        if (m.mission_id !== id) return m;
+        return { ...m, reserved: true };
       });
       state.missions = createMission;
     },
@@ -52,7 +52,7 @@ const missionSlice = createSlice({
         state.missions = action.payload.map((m) => ({
           ...m,
           reserved: false,
-        }))
+        }));
       })
       .addCase(getMissions.rejected, (state) => {
         state.isLoading = false;
@@ -61,5 +61,5 @@ const missionSlice = createSlice({
   },
 });
 
-export default missionSlice.reducer;
 export const { joinMission, leaveMission } = missionSlice.actions;
+export default missionSlice.reducer;
