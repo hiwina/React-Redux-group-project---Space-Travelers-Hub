@@ -16,6 +16,11 @@ function NavigationBar() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/dragon" className="Link">
+            Dragon
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/mission" className="Link">
             Mission
           </NavLink>
