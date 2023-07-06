@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const getMissionsURL = 'https://api.spacexdata.com/v3/missions/';
-export const getMissions = createAsyncThunk('missions/getMissions', async (api) => {
+export const getMissions = createAsyncThunk('missions/getMissions', async (_, api) => {
   try {
     const response = await axios(getMissionsURL);
     return response.data;
@@ -20,6 +20,26 @@ export const getMissions = createAsyncThunk('missions/getMissions', async (api) 
 const missionSlice = createSlice({
   name: 'missions',
   initialState,
+  reducers: {
+    joinMission: (state, action) => {
+      const id = action.payload;
+      const createMission = state.missions.map((m) => {
+        if(m.mission_id !== id) return m;
+        return { ...m, reserved:true}
+      });
+      state.missions = createMission;
+    },
+
+    leaveMission: (state, action) => {
+      const id = action.payload;
+      const createMission = state.missions.map((m) => {
+        if (m.mission_id !== id) return m;
+        return { ...m, reserved: !m.reserved };
+      });
+      state.missions = createMission;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(getMissions.pending, (state) => {
@@ -29,6 +49,10 @@ const missionSlice = createSlice({
         state.isLoading = false;
         state.err = false;
         state.missions = action.payload;
+        state.missions = action.payload.map((m) => ({
+          ...m,
+          reserved: false,
+        }))
       })
       .addCase(getMissions.rejected, (state) => {
         state.isLoading = false;
@@ -38,3 +62,4 @@ const missionSlice = createSlice({
 });
 
 export default missionSlice.reducer;
+export const { joinMission, leaveMission } = missionSlice.actions;
