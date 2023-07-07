@@ -6,11 +6,19 @@ const initialState = {
   rocket: [],
   error: '',
 };
+
 const url = 'https://api.spacexdata.com/v4/dragons';
-export const fetchDragons = createAsyncThunk('rocket/fetchrockets', () => axios.get(url).then((res) => res.data));
+export const fetchDragons = createAsyncThunk('dragons/fetchDragons', async (thunkAPI) => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong!');
+  }
+});
 
 const dragonsSlice = createSlice({
-  name: 'rocket',
+  name: 'dragon',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchDragons.pending, (state) => ({
