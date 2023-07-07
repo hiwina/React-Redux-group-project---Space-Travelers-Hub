@@ -1,32 +1,34 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom';
 import { useEffect } from 'react';
-import Missions from './pages/Missions';
-import Root from './layouts.js/root';
-import { getMissions } from './redux/missions/missionSlice';
 import './App.css';
+import NavigationBar from './components/navigation-bar';
+import Rocket from './components/Rocket';
+import Mission from './pages/Missions';
+import Myprofile from './components/profile';
+import Dragon from './components/Dragon';
+import { getMissions } from './redux/missions/missionSlice';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      <Route index element={<Missions />} />
-    </Route>,
-  ),
-);
-
-const App = () => {
+function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMissions());
   }, [dispatch]);
 
-  return <RouterProvider router={router} />;
-};
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<Rocket />} />
+          <Route path="/dragon" element={<Dragon />} />
+          <Route path="/mission" element={<Mission />} />
+          <Route path="/myprofile" element={<Myprofile />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
 
 export default App;
