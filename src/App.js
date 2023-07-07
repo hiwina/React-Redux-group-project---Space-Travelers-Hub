@@ -6,7 +6,6 @@ import NavigationBar from './components/navigation-bar';
 import Rocket from './components/Rocket';
 import Mission from './pages/Missions';
 import Myprofile from './components/profile';
-import Dragon from './components/Dragon';
 import { getMissions } from './redux/missions/missionSlice';
 import DragonsPage from './pages/DragonsPage';
 
