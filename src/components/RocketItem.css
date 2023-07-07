@@ -10,7 +10,7 @@
 }
 
 .rocket-info {
-  margin-left: 1.5%;
+  margin-left: 0.5%;
 }
 
 .rocket-title,
@@ -38,10 +38,12 @@
   padding: 1.5% 3.5%;
   border-radius: 5%;
   border: none;
+  margin-right: 80%;
 }
 
 .rocket-title {
   font-size: 21px;
+  margin-right: 80%;
 }
 
 .reserve-button {
@@ -50,4 +52,5 @@
   border-radius: 5%;
   padding: 1.5% 3.5%;
   border: none;
+  margin-right: 80%;
 }
