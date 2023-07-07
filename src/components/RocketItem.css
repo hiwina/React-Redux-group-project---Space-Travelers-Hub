@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 10px;
+}
+
+.container .img-container img {
+  width: 300px;
+  height: 200px;
+}
+
+.container .details-container {
+  text-align: start;
+  padding-right: 20px;
+}
+
+.container .details-container .badge {
+  background-color: rgb(3, 136, 118);
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: white;
+  margin-right: 10px;
+}
+
+.container .details-container .rocket-btn {
+  background-color: rgb(26, 120, 241);
+  border-radius: 8px;
+  outline: auto;
+  color: aliceblue;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container .details-container .reserved-btn {
+  outline: auto;
+  border-radius: 8px;
+  background-color: white;
+  color: rgb(128, 128, 128);
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
