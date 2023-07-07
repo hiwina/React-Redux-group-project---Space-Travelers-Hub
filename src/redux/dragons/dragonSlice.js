@@ -10,7 +10,7 @@ const initialState = {
 const url = 'https://api.spacexdata.com/v4/dragons';
 export const fetchDragons = createAsyncThunk('dragons/fetchDragons', async (thunkAPI) => {
   try {
-    const response = await axios(url);
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong!');

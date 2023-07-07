@@ -4,7 +4,8 @@ import NavigationBar from './components/navigation-bar';
 import Rocket from './components/Rocket';
 import Mission from './components/Mission';
 import Myprofile from './components/profile';
-import Dragon from './components/Dragon';
+// import Dragon from './components/Dragon';
+import DragonsPage from './pages/DragonsPage';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Rocket />} />
-          <Route path="/dragon" element={<Dragon />} />
+          <Route path="/dragon" element={<DragonsPage />} />
           <Route path="/mission" element={<Mission />} />
           <Route path="/myprofile" element={<Myprofile />} />
         </Routes>

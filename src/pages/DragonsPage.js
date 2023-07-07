@@ -23,7 +23,7 @@ const Dragons = () => {
           <Dragon
             key={dragon.id}
             name={dragon.name}
-            img={dragon.flickr_images}
+            img={dragon.flickr_images[0]}
             id={dragon.id}
             desc={dragon.description}
           />
