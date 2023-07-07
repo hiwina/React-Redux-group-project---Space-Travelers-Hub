@@ -7,7 +7,7 @@ function NavigationBar() {
     <div className="nav">
       <div className="logo">
         <img src={logo} alt="logo" />
-        <p className="campany-name">Space Travels Hub</p>
+        <p className="company-name">Space Travels Hub</p>
       </div>
       <ul>
         <li>
