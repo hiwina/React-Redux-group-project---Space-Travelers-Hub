@@ -1,13 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import './App.css';
 import NavigationBar from './components/navigation-bar';
 import Rocket from './components/Rocket';
-import Mission from './components/Mission';
+import Mission from './pages/Missions';
 import Myprofile from './components/profile';
-// import Dragon from './components/Dragon';
+import { getMissions } from './redux/missions/missionSlice';
 import DragonsPage from './pages/DragonsPage';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMissions());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <BrowserRouter>
