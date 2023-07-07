@@ -1,31 +1,31 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+
 import RocketItem from './RocketItem';
-import { getData } from '../redux/Rocket/rocketSlice';
+import { fetchRockets } from '../redux/Rocket/rocketSlice';
 
 const Rockets = () => {
-  const { rockets, isLoading, error } = useSelector((store) => store.rockets);
   const dispatch = useDispatch();
+  const { rockets } = useSelector((store) => store.rockets);
+  // console.log(rockets);
   useEffect(() => {
-    dispatch(getData());
+    dispatch(fetchRockets());
   }, [dispatch]);
-  if (error) {
-    return <div>{error.message}</div>;
+
+  if (!rockets) {
+    return <div>Rockets Loading...</div>;
   }
-  return isLoading ? (
-    <div>Data is loading...</div>
-  ) : (
-    <>
+
+  return (
+    <div className="all-rockets">
       {rockets.length > 0 ? (
-        <div>
-          {rockets.map((data) => (
-            <RocketItem key={data.id} data={data} />
+        <ul className="each-rocket">
+          {rockets.map((rocketItem) => (
+            <RocketItem rocketItem={rocketItem} key={rocketItem.id} />
           ))}
-        </div>
-      ) : (
-        'no rockets'
-      )}
-    </>
+        </ul>
+      ) : 'No rockets' }
+    </div>
   );
 };
 
