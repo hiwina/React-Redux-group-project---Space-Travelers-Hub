@@ -8,6 +8,7 @@ import Mission from './pages/Missions';
 import Myprofile from './components/profile';
 import Dragon from './components/Dragon';
 import { getMissions } from './redux/missions/missionSlice';
+import DragonsPage from './pages/DragonsPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Rocket />} />
-          <Route path="/dragon" element={<Dragon />} />
+          <Route path="/dragon" element={<DragonsPage />} />
           <Route path="/mission" element={<Mission />} />
           <Route path="/myprofile" element={<Myprofile />} />
         </Routes>

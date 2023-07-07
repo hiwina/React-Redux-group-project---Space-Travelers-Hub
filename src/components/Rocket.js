@@ -1,9 +1,32 @@
-function Rocket() {
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import RocketItem from './RocketItem';
+import { fetchRockets } from '../redux/Rocket/rocketSlice';
+
+const Rockets = () => {
+  const dispatch = useDispatch();
+  const { rockets } = useSelector((store) => store.rockets);
+  // console.log(rockets);
+  useEffect(() => {
+    dispatch(fetchRockets());
+  }, [dispatch]);
+
+  if (!rockets) {
+    return <div>Rockets Loading...</div>;
+  }
+
   return (
-    <div>
-      <h2>Rocket Page</h2>
+    <div className="all-rockets">
+      {rockets.length > 0 ? (
+        <ul className="each-rocket">
+          {rockets.map((rocketItem) => (
+            <RocketItem rocketItem={rocketItem} key={rocketItem.id} />
+          ))}
+        </ul>
+      ) : 'No rockets' }
     </div>
   );
-}
+};
 
-export default Rocket;
+export default Rockets;
