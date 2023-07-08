@@ -95,6 +95,40 @@ Clone this repository to your desired folder:
 
 - With a git cmd, git bash or visual studio terminal, clone repo with **``https://github.com/hiwina/react-redux-group-project-space-travelers-hub``** to download the repository locally on your machine.
 
+
+### Install
+
+Install this project with:
+
+```sh
+  cd space_travelers_hub
+  npm install
+```
+
+### Usage
+
+To run the project, execute the following command:
+
+```sh
+  npm start
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  npm test
+```
+
+### Deployment
+
+You can deploy this project using:
+
+- Free deployment services like GitHub pages.
+- Any deployment services of your choice.
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
