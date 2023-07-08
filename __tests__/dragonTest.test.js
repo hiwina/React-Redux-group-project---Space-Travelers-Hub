@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 import DragonsPage from '../src/pages/DragonsPage';
-import { fetchDragons, cancelReservation, reserveDragon } from '../redux/dragons/dragonSlice';
+import { fetchDragons, cancelReservation, reserveDragon } from '../src/redux/dragons/dragonSlice';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
@@ -12,17 +12,19 @@ jest.mock('react-redux', () => ({
 describe('DragonsPage', () => {
   const mockDispatch = jest.fn();
   const mockDragons = [
-    { id: 'dragon1', name: 'Dragon 1', description: 'Dragon 1 description', reserved: false, flickr_images: ['https://example.com/dragon1.jpg'] },
-    { id: 'dragon2', name: 'Dragon 2', description: 'Dragon 2 description', reserved: true, flickr_images: ['https://example.com/dragon2.jpg'] },
+    {
+      id: 'dragon1', name: 'Dragon 1', description: 'Dragon 1 description', reserved: false, flickr_images: ['https://example.com/dragon1.jpg'],
+    },
+    {
+      id: 'dragon2', name: 'Dragon 2', description: 'Dragon 2 description', reserved: true, flickr_images: ['https://example.com/dragon2.jpg'],
+    },
   ];
 
   beforeEach(() => {
     useDispatch.mockReturnValue(mockDispatch);
-    useSelector.mockImplementation((selector) =>
-      selector({
-        dragons: { dragons: mockDragons },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      dragons: { dragons: mockDragons },
+    }));
   });
 
   afterEach(() => {
@@ -46,11 +48,9 @@ describe('DragonsPage', () => {
   });
 
   test('dispatches fetchDragons action when dragons array is empty', () => {
-    useSelector.mockImplementation((selector) =>
-      selector({
-        dragons: { dragons: [] },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      dragons: { dragons: [] },
+    }));
 
     render(<DragonsPage />);
 

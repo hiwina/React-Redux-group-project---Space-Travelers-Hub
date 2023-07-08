@@ -24,13 +24,11 @@ describe('MyProfile', () => {
   ];
 
   beforeEach(() => {
-    useSelector.mockImplementation((selector) =>
-      selector({
-        missions: { missions: mockMissions },
-        rockets: { rockets: mockRockets },
-        dragons: { dragons: mockDragons },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      missions: { missions: mockMissions },
+      rockets: { rockets: mockRockets },
+      dragons: { dragons: mockDragons },
+    }));
   });
 
   afterEach(() => {
@@ -68,13 +66,11 @@ describe('MyProfile', () => {
       { mission_id: 'mission2', mission_name: 'Mission 2', reserved: false },
     ];
 
-    useSelector.mockImplementation((selector) =>
-      selector({
-        missions: { missions: mockMissionsNoJoined },
-        rockets: { rockets: mockRockets },
-        dragons: { dragons: mockDragons },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      missions: { missions: mockMissionsNoJoined },
+      rockets: { rockets: mockRockets },
+      dragons: { dragons: mockDragons },
+    }));
 
     render(<MyProfile />);
 
@@ -88,13 +84,11 @@ describe('MyProfile', () => {
       { id: 'rocket2', rocketName: 'Rocket 2', reserved: false },
     ];
 
-    useSelector.mockImplementation((selector) =>
-      selector({
-        missions: { missions: mockMissions },
-        rockets: { rockets: mockRocketsNoReserved },
-        dragons: { dragons: mockDragons },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      missions: { missions: mockMissions },
+      rockets: { rockets: mockRocketsNoReserved },
+      dragons: { dragons: mockDragons },
+    }));
 
     render(<MyProfile />);
 
@@ -108,13 +102,11 @@ describe('MyProfile', () => {
       { id: 'dragon2', name: 'Dragon 2', reserved: false },
     ];
 
-    useSelector.mockImplementation((selector) =>
-      selector({
-        missions: { missions: mockMissions },
-        rockets: { rockets: mockRockets },
-        dragons: { dragons: mockDragonsNoReserved },
-      })
-    );
+    useSelector.mockImplementation((selector) => selector({
+      missions: { missions: mockMissions },
+      rockets: { rockets: mockRockets },
+      dragons: { dragons: mockDragonsNoReserved },
+    }));
 
     render(<MyProfile />);
 

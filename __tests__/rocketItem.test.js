@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useDispatch } from 'react-redux';
 import RocketItem from '../src/components/RocketItem';
+import { cancelReserved, reserveRocket } from '../src/redux/Rocket/rocketSlice';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),

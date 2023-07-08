@@ -7,7 +7,7 @@ test('renders NavigationBar component', () => {
   render(
     <BrowserRouter>
       <NavigationBar />
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 
   // Verify that the logo and company name are rendered

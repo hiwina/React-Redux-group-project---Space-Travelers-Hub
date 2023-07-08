@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useDispatch } from 'react-redux';
 import MissionButton from '../src/components/MissionButton';
-import { joinMission, leaveMission } from '../redux/missions/missionSlice';
+import { joinMission, leaveMission } from '../src/redux/missions/missionSlice';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
@@ -30,7 +30,7 @@ describe('MissionButton', () => {
   });
 
   test('renders MissionButton component with "Leave mission" text when reserved', () => {
-    render(<MissionButton id="mission1" reserved={true} />);
+    render(<MissionButton id="mission1" reserved />);
 
     const leaveMissionButtonElement = screen.getByText('Leave mission');
     expect(leaveMissionButtonElement).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('MissionButton', () => {
   });
 
   test('dispatches leaveMission action when Leave mission button is clicked', () => {
-    render(<MissionButton id="mission1" reserved={true} />);
+    render(<MissionButton id="mission1" reserved />);
 
     const leaveMissionButtonElement = screen.getByText('Leave mission');
     fireEvent.click(leaveMissionButtonElement);

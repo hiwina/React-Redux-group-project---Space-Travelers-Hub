@@ -12,6 +12,7 @@ describe('Mission', () => {
   };
 
   test('renders Mission component with active member status', () => {
+    // eslint-disable-next-line react/jsx-props-no-spreading
     render(<Mission {...mockMission} />);
 
     const missionNameElement = screen.getByText('Mission 1');
@@ -29,7 +30,7 @@ describe('Mission', () => {
       ...mockMission,
       reserved: false,
     };
-
+    // eslint-disable-next-line react/jsx-props-no-spreading
     render(<Mission {...mockMissionNotReserved} />);
 
     const notAMemberStatusElement = screen.getByText('NOT A MEMBER');
@@ -37,6 +38,7 @@ describe('Mission', () => {
   });
 
   test('renders MissionButton component with correct props', () => {
+    // eslint-disable-next-line react/jsx-props-no-spreading
     render(<Mission {...mockMission} />);
 
     const missionButtonElement = screen.getByTestId('mission-button');
