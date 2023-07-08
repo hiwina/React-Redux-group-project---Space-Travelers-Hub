@@ -1,27 +1,20 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import renderer from 'react-test-renderer';
+import React from 'react';
+import store from '../redux/store';
 import Mission from '../components/Mission';
 
-const mockStore = configureStore([]);
+describe('User Interactions test', () => {
+  it('will test user interaction', () => {
+    const tree = renderer
+      .create(
+        <Provider store={store}>
+          <Mission />
+        </Provider>,
+      )
+      .toJSON();
 
-test('renders Missions component', () => {
-  const store = mockStore({ mission: { mission: [] } });
-
-  render(
-    <Provider store={store}>
-      <Mission />
-    </Provider>,
-  );
-});
-
-test('handles join and leave mission', () => {
-  const store = mockStore({ mission: { mission: [] } });
-
-  render(
-    <Provider store={store}>
-      <Mission />
-    </Provider>,
-  );
+    expect(tree).toMatchSnapshot();
+  });
 });
