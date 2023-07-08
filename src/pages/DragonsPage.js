@@ -1,36 +1,61 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDragons } from '../redux/dragons/dragonSlice';
-import Dragon from '../components/Dragon';
+import { fetchDragons, cancelReservation, reserveDragon } from '../redux/dragons/dragonSlice';
+import style from '../styles/DragonsPage.module.css';
 
-const Dragons = () => {
-  const dragons = useSelector((store) => store.dragons);
+const DragonsPage = () => {
   const dispatch = useDispatch();
+  const { dragons } = useSelector((store) => store.dragons);
+
   useEffect(() => {
-    dispatch(fetchDragons());
-  }, [dispatch]);
+    if (dragons.length === 0) {
+      dispatch(fetchDragons());
+    }
+  }, [dispatch, dragons.length]);
+
+  const handleReserve = (id) => {
+    dispatch(reserveDragon(id));
+  };
+
+  const cancelReserve = (id) => {
+    dispatch(cancelReservation(id));
+  };
+
   return (
-    <div className="container">
-      {dragons.loading && <div>loading</div>}
-      {!dragons.loading && dragons.error ? (
-        <div>
-          Error
-          {dragons.error}
+    <section className="dragons">
+      {dragons.map((dragon) => (
+        <div className={style.dragon} key={dragon.id}>
+          <div className={style.dragonImg}>
+            <img src={dragon.flickr_images[0]} alt={dragon.name} />
+          </div>
+          <div className={style.dragonInfo}>
+            <h2>{dragon.name}</h2>
+            <p>
+              {dragon.reserved && <span className={style.reservedText}>Reserved</span>}
+              {dragon.description}
+            </p>
+            {!dragon.reserved ? (
+              <button
+                type="button"
+                onClick={() => handleReserve(dragon.id)}
+                className={style.reserve}
+              >
+                Reserve Dragon
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => cancelReserve(dragon.id)}
+                className={style.cancel}
+              >
+                Cancel Reservation
+              </button>
+            )}
+          </div>
         </div>
-      ) : null}
-      {!dragons.loading && dragons.rocket.length ? (
-        dragons.rocket.map((dragon) => (
-          <Dragon
-            key={dragon.id}
-            name={dragon.name}
-            img={dragon.flickr_images[0]}
-            id={dragon.id}
-            desc={dragon.description}
-          />
-        ))
-      ) : null}
-    </div>
+      ))}
+    </section>
   );
 };
 
-export default Dragons;
+export default DragonsPage;
