@@ -17,7 +17,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [ ] <a name="about-project"></a>
+# 📖 [ React & Redux group project - Space Travelers' Hub] <a name="about-project"></a>
 In this project, we will be working with the real live data from the SpaceX API. Our task is to build a web application for a company that provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
  
 
@@ -28,26 +28,41 @@ By building this application, I use React and Redux.
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
+  <summary>Text Editor</summary>
   <ul>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML5</a></li>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">CSS3</a></li>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">JavaScript</a></li>
+    <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
   </ul>
 </details>
 
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+    <li><a href="https://react.dev/">React.js</a></li>
+  </ul>
+</details>
 
+<details>
+<summary>Style</summary>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+     <li><a href="https://react-bootstrap.github.io/docs/getting-started/introduction">React-bootstrap</a></li>
+  </ul>
+</details>
 
+<details>
+<summary>Test</summary>
+  <ul>
+    <li><a href="https://jestjs.io/">React testing library and Jest</a></li>
+     
+  </ul>
+</details>
 
 ### Key Features <a name="key-features"></a>
-Key Features
-
-key features of the application:
--  [ ] Book rocket
--  [ ] join selected mission
--  [ ] Book Dragon
-
-
+- **Rocket book and Reservation**
+- **Dragon book and Reservation**
+- **Mission Join and Leaving**
+- **User profile**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -78,8 +93,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- With a git cmd, git bash or visual studio terminal, clone repo with **``git@github.com:coker2019/Bookstore.git``** to download the repository locally on your machine.
-- Then you navigate to the folder in your code editor with the command *``cd react-bookstore``*.
+- With a git cmd, git bash or visual studio terminal, clone repo with **``https://github.com/hiwina/react-redux-group-project-space-travelers-hub``** to download the repository locally on your machine.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
