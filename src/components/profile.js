@@ -4,7 +4,6 @@ const MyProfile = () => {
   const { missions } = useSelector((store) => store.missions);
   const { rockets } = useSelector((store) => store.rockets);
   const { dragons } = useSelector((store) => store.dragons);
-  // console.log(missions);
   const reservedRockets = rockets.filter((rocket) => rocket.reserved === true);
   const reservedDragons = dragons.filter((dragon) => dragon.reserved === true);
   const joinedMissions = missions.filter((mission) => mission.reserved === true);
@@ -40,7 +39,7 @@ const MyProfile = () => {
         <ul className="border rounded-md list-none">
           {reservedDragons.map((dragon) => (
             <li className="pb-8 pt-4 pl-8 border-b font-normal" key={dragon.id}>
-              {dragon.dragon_name}
+              {dragon.name}
             </li>
           ))}
         </ul>

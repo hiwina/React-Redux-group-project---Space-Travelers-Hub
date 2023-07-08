@@ -5,7 +5,9 @@ import './App.css';
 import NavigationBar from './components/navigation-bar';
 import Rocket from './components/Rocket';
 import Mission from './pages/Missions';
-import Myprofile from './components/profile';
+// import MyProfilePage from './pages/MyProfilePage';
+import MyProfile from './components/profile';
+
 import { getMissions } from './redux/missions/missionSlice';
 import DragonsPage from './pages/DragonsPage';
 
@@ -24,7 +26,7 @@ function App() {
           <Route path="/" element={<Rocket />} />
           <Route path="/dragon" element={<DragonsPage />} />
           <Route path="/mission" element={<Mission />} />
-          <Route path="/myprofile" element={<Myprofile />} />
+          <Route path="/myprofile" element={<MyProfile />} />
         </Routes>
       </BrowserRouter>
     </div>
